@@ -5,18 +5,39 @@ import java.time.Duration;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 public class LaunchActi {
 
+	
+	@Parameters("Browser")
 	@Test
-	public void launchBrowser()
+	public void launchBrowser(String browserName)
 	{
 		
 		//manage() method will do[ An interface for managing stuff you would do in a browser menu ]
 String title="actiTIME - Login";
-		WebDriver driver=new ChromeDriver();
+
+    WebDriver driver=null;
+    if(browserName.equalsIgnoreCase("chrome"))
+    {
+		 driver=new ChromeDriver();
+    }
+    else if(browserName.equalsIgnoreCase("gechko"))
+    {
+    	 driver=new FirefoxDriver();
+    }
+    else if(browserName.equalsIgnoreCase("edge"))
+    {
+    	 driver=new EdgeDriver();
+    }
+    else {
+    	driver=new ChromeDriver();
+    }
 		driver.get("https://demo.actitime.com/login.do");
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
