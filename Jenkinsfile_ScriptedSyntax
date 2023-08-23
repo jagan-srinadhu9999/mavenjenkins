@@ -1,0 +1,24 @@
+node {
+    
+    stage('Build') { 
+
+    echo 'commit changes are builded'
+
+    }
+    stage('Test') {
+       
+    echo 'Build is tested'
+
+
+        }
+    stage('Deploye') {
+       
+    echo 'Application is deployed'
+
+    }
+    
+   
+    }
+   
+
+
