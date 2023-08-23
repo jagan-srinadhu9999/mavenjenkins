@@ -21,11 +21,14 @@ public class LaunchActi {
 		
 		//manage() method will do[ An interface for managing stuff you would do in a browser menu ]
 String title="actiTIME - Login";
-
+  // ChromeOptions opt=new ChromeOptions();
     WebDriver driver=null;
     if(browserName.equalsIgnoreCase("chrome"))
     {
-		 driver=new ChromeDriver();
+		/*
+		 * opt.addArguments("--remote-allow-origins=*"); // opt.setBinary(
+		 * "C:\\Users\\HP\\Downloads\\chrome-win64\\chrome-win64\\chrome.exe");
+		 */		 driver=new ChromeDriver();
     }
     else if(browserName.equalsIgnoreCase("gechko"))
     {
